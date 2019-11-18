@@ -1,17 +1,20 @@
 import React from 'react';
 
-const Dashboard = (props) => {
+//components
+import Map from './Map'
+import Commands from './Commands'
+import Description from './Description'
 
-    const logout = e => {
-        localStorage.removeItem('token')
-        props.history.push('/login')
-    }
+const Dashboard = (props) => {
 
 
     return (
-        <div>
-            <h1> Hello from Dashboard</h1>
-            <button onClick={logout}>logout</button>
+        <div className='container'>
+            <Commands />
+            <div className='sidebar'>
+                <Map />
+                <Description />
+            </div>
         </div>
     );
 };
