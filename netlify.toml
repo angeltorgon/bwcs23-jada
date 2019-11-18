@@ -2,11 +2,3 @@
     base = "jada/"
     publish = "build/"
     command = "npm run build"
-
-[[redirects]]
-    from = "/*"
-    to = "/index.html"
-    status = 200
-
-[context.production]
-    command = "npm run build"
