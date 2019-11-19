@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router'
 
 const Navbar = (props) => {
 
@@ -14,4 +15,4 @@ const Navbar = (props) => {
     );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 const Register = (props) => {
 
@@ -36,6 +37,9 @@ const Register = (props) => {
 
     return (
         <div>
+            <Link to='/login'>Already Registered - Click Here to Login</Link>
+            <h1> Welcome to JADA-Mud </h1>
+            <h3> Register Now </h3>
             <form onSubmit={signup}>
                 <input type='text' value={user.username} name='username' onChange={handleChanges} placeholder='username' />
                 <input type='password' value={user.password1} name='password1' onChange={handleChanges} placeholder='password1'/>
