@@ -23,4 +23,4 @@ const Navbar = (props) => {
     );
 };
 
-export default withRouter(Navbar);
+export default Navbar;
