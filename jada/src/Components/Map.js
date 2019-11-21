@@ -1,23 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Graph } from "react-d3-graph";
 import { axiosWithAuth } from "../utilities/axiosWithAuth";
-
-
-function usePrevious(value) {
-    // The ref object is a generic container whose current property is mutable ...
-    // ... and can hold any value, similar to an instance property on a class
-    const ref = useRef();
-    
-    // Store current value in ref
-    useEffect(() => {
-      ref.current = value;
-    }, [value]); // Only re-run if value changes
-    
-    // Return previous value (happens before update in useEffect above)
-    return ref.current;
-  }
-
-
 
 const Map = () => {
     const [data, setData] = useState();
@@ -40,7 +23,7 @@ const Map = () => {
 
     useEffect(() => {
         axiosWithAuth()
-        .get("http://127.0.0.1:8000/api/adv/get_rooms")
+        .get("api/adv/get_rooms")
         .then((res) => {
             const arr = []
             const data = {nodes: [], links: []}
@@ -69,7 +52,7 @@ const Map = () => {
         })
 
         axiosWithAuth()
-        .get("http://127.0.0.1:8000/api/adv/init")
+        .get("api/adv/init")
         .then((res) => {
             setCurrentRoom(res.data.id)
         })
@@ -91,7 +74,7 @@ const Map = () => {
 
     const charAction = e => {
         axiosWithAuth()
-        .post("http://127.0.0.1:8000/api/adv/move", { "direction": e.target.name })
+        .post("/api/adv/move", { "direction": e.target.name })
         .then(res => {
             const newRoom = res.data.id
             data.nodes[currentRoom - 1].color = "darkgrey"

@@ -17,7 +17,7 @@ const Login = (props) => {
 
     const signup = e => {
         e.preventDefault()
-        axios.post(`http://127.0.0.1:8000/api/login/`, user)
+        axios.post(`${process.env.REACT_APP_API_HOST}api/login/`, user)
             .then(res => {
                 localStorage.setItem('token', res.data.key)
                 props.history.push('/dashboard')
