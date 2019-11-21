@@ -18,7 +18,7 @@ const Register = (props) => {
 
     const signup = e => {
         e.preventDefault()
-        axios.post('https://lambda-mud-test.herokuapp.com/api/registration/', user)
+        axios.post(`${process.env.REACT_APP_API_HOST}api/registration/`, user)
             .then(res => {
                 localStorage.setItem('token', res.data.key)
                 props.history.push('/dashboard')
