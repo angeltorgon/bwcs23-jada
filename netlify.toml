@@ -1,11 +1,4 @@
-[build]
-    base = "client/"
-    publish = "build/"
-
 [[redirects]]
     from = "/*"
     to = "/"
     status = 200
-
-[context.production]
-    command = "npm run build"
