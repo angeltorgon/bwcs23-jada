@@ -1,5 +1,5 @@
 [build]
-    base = "jada/"
+    base = "client/"
     publish = "build/"
     command = "npm run build"
 
