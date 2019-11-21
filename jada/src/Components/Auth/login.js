@@ -17,9 +17,9 @@ const Login = (props) => {
 
     const signup = e => {
         e.preventDefault()
-        axios.post('https://lambda-mud-test.herokuapp.com/api/login/', user)
+        axios.post(`http://127.0.0.1:8000/api/login/`, user)
             .then(res => {
-                localStorage.setItem('token', res.key)
+                localStorage.setItem('token', res.data.key)
                 props.history.push('/dashboard')
             })
             .catch(err => {

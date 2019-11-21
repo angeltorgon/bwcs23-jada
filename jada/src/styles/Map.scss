@@ -1,4 +1,12 @@
 .map-container {
     border: 1px solid red;
     height: 300px;
+
+    div {
+        svg {
+            g {
+                border: 1px solid blue
+            }
+        }
+    }
 }
