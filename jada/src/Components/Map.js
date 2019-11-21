@@ -2,23 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Graph } from "react-d3-graph";
 import { axiosWithAuth } from "../utilities/axiosWithAuth";
 
-
-function usePrevious(value) {
-    // The ref object is a generic container whose current property is mutable ...
-    // ... and can hold any value, similar to an instance property on a class
-    const ref = useRef();
-    
-    // Store current value in ref
-    useEffect(() => {
-      ref.current = value;
-    }, [value]); // Only re-run if value changes
-    
-    // Return previous value (happens before update in useEffect above)
-    return ref.current;
-  }
-
-
-
 const Map = () => {
     const [data, setData] = useState();
     const [currentRoom, setCurrentRoom] = useState()
@@ -95,7 +78,6 @@ const Map = () => {
         .then(res => {
             const newRoom = res.data.id
             data.nodes[currentRoom - 1].color = "darkgrey"
-            //console.log(`before ${currentRoom}`)
             setCurrentRoom(newRoom)
         })
         .catch(err => {
